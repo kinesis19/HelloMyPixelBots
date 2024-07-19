@@ -45,7 +45,14 @@ int main() {
     printf("\t\t\t\t\t\t■■          ■■  ■■    ■■    ■■■■    ■■        ■■■■■■      ■■■■        ■■      ■■    ■■\n");
     printf("\t\t\t\t\t\t■■          ■■  ■■    ■■      ■■        ■■      ■■■■■■        ■■          ■■■■  ■■■■■■\n");
 
-    
+    // 버튼 출력하기.
+    printf("\n\n\n\n");
+    printf("\t\t\t\t\t\t\t\t\t\t\t> [1]New Game\n\n");
+    printf("\t\t\t\t\t\t\t\t\t\t\t> [2]Load Game(Impossible)\n\n");
+    printf("\t\t\t\t\t\t\t\t\t\t\t> [3]Settings\n\n");
+    printf("\t\t\t\t\t\t\t\t\t\t\t> [4]Exit\n\n");
+
+
     getchar();
 
     return 0;
