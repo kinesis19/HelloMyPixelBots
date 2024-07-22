@@ -8,6 +8,9 @@
 #include <string.h>
 #include <stdlib.h>
 
+// 소스코드 참조하기.
+#include "Player.h"
+#include "Stage.h"
 
 // 필요한 상수 선언하기.
 #define UP 72
@@ -230,26 +233,43 @@ static void Initializing_Command_Line() {
 					// Stage1 선택일 때,
 					if (curCnt == 1) {
 						// Stage1로 이동하기.
-
+						player.selectChapter = 1;
+						player.selectStage = 1;
+						EnterToStage();
+						return 0;
 						break;
 					}else if(curCnt == 2){
 						//Stage2로 이동하기.
-
+						player.selectChapter = 1;
+						player.selectStage = 2;
+						EnterToStage();
+						return 0;
 						break;
 					}else if(curCnt == 3){
 						//Stage3로 이동하기.
-
+						player.selectChapter = 1;
+						player.selectStage = 3;
+						EnterToStage();
+						return 0;
 						break;
 					}else if(curCnt == 4){
 						//Stage4로 이동하기.
-
+						player.selectChapter = 1;
+						player.selectStage = 4;
+						EnterToStage();
+						return 0;
 						break;
 					}else if(curCnt == 5){
 						//Stage5로 이동하기.
-
+						player.selectChapter = 1;
+						player.selectStage = 5;
+						EnterToStage();
+						return 0;
 						break;
 					}else if(curCnt == 6){
 						//Lobby로 이동하기.
+						player.selectChapter = 0;
+						player.selectStage = 0;
 						Lobby();
 						break;
 					}
