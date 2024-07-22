@@ -12,7 +12,7 @@
 #define ENTER 13
 
 // 사용자 지정 함수 프로토타입 선언하기.
-void SettingCursor(int x, int y);
+static void SettingCursor(int x, int y);
 void HidingCursor();
 
 int main() {
@@ -110,10 +110,8 @@ int main() {
     return 0;
 }
 
-void SettingCursor(int x, int y) {
-    COORD coord;
-    coord.X = x;
-    coord.Y = y;
+static void SettingCursor(int x, int y) {
+    COORD coord = { x, y };
     SetConsoleCursorPosition(GetStdHandle(STD_OUTPUT_HANDLE), coord);
 }
 
