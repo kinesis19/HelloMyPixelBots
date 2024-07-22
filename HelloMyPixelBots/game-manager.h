@@ -15,7 +15,7 @@ enum ColorType {
 	RED,
 	PURPLE,
 	YELLOW,
-	WHILE
+	WHITE
 };
 
 void Setting_Color();
