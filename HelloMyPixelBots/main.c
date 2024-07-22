@@ -5,6 +5,7 @@
 
 // 소스코드 참조하기.
 #include "lobby.h"
+#include "Player.h"
 
 // 필요한 상수 선언하기.
 #define UP 72
@@ -26,6 +27,9 @@ int main() {
     SetWindowLong(consoleWindow, GWL_STYLE, style);
     // 콘솔 창의 사이즈는 200 * 50 size로 지정하기.
     system("mode con:cols=200 lines=50");
+
+    // Player Data 초기화하기.
+    InitializingPlayer();
 
     system("cls");
     // ■ 하나 : 2칸 확보.
