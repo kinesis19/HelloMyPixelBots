@@ -90,6 +90,8 @@ int main() {
             case ENTER:
                 if (curCnt == 1) {
                     Lobby();
+                    return 0;
+                    break;
                 }
             default:
                 break;

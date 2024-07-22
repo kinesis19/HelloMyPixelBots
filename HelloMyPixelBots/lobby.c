@@ -7,5 +7,8 @@
 void Lobby() {
 
 
+	system("cls");
+	printf("Lobby Test");
 
+	
 }
