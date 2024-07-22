@@ -6,6 +6,7 @@
 // 소스코드 참조하기.
 #include "lobby.h"
 #include "Player.h"
+#include "game-manager.h"
 
 // 필요한 상수 선언하기.
 #define UP 72
@@ -13,7 +14,6 @@
 #define ENTER 13
 
 // 사용자 지정 함수 프로토타입 선언하기.
-static void SettingCursor(int x, int y);
 void HidingCursor();
 
 int main() {
@@ -112,11 +112,6 @@ int main() {
     }
 
     return 0;
-}
-
-static void SettingCursor(int x, int y) {
-    COORD coord = { x, y };
-    SetConsoleCursorPosition(GetStdHandle(STD_OUTPUT_HANDLE), coord);
 }
 
 void HidingCursor() {

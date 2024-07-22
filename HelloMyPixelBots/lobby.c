@@ -11,6 +11,7 @@
 // 소스코드 참조하기.
 #include "Player.h"
 #include "Stage.h"
+#include "game-manager.h"
 
 // 필요한 상수 선언하기.
 #define UP 72
@@ -18,7 +19,6 @@
 #define ENTER 13
 
 void SettingGUI_Lobby();
-static void SettingCursor(int x, int y);
 static void SettingGUI_Lobby_Layout_Base();
 static void SettingGUI_Lobby_Layout_Dialog();
 static void SettingGUI_Lobby_Layout_Chapters();
@@ -47,11 +47,6 @@ void SettingGUI_Lobby() {
 
 	// 4. 커맨드 라인 호출하기.
 	Initializing_Command_Line();
-}
-
-static void SettingCursor(int x, int y) {
-    COORD coord = { x, y };
-    SetConsoleCursorPosition(GetStdHandle(STD_OUTPUT_HANDLE), coord);
 }
 
 static void SettingGUI_Lobby_Layout_Base() {
