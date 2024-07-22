@@ -11,8 +11,10 @@ void InitializingPlayer() {
 
 	for (int i = 0; i < 5; i++) {
 		for (int j = 0; j < 5; j++) {
-			player.Chapters[i][j] = 0;
+			player.chapters[i][j] = 0;
 		}
 	}
+	player.selectChapter = 0;
+	player.selectStage = 0;
 
 }
