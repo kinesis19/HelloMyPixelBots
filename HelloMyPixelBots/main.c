@@ -3,9 +3,13 @@
 #include <Windows.h>
 #include <conio.h>
 
+// 소스코드 참조하기.
+#include "lobby.h"
+
 // 필요한 상수 선언하기.
 #define UP 72
 #define DOWN 80
+#define ENTER 13
 
 // 사용자 지정 함수 프로토타입 선언하기.
 void SettingCursor(int x, int y);
@@ -83,6 +87,10 @@ int main() {
                     curCnt++;
                 }
                 break;
+            case ENTER:
+                if (curCnt == 1) {
+                    Lobby();
+                }
             default:
                 break;
             }
