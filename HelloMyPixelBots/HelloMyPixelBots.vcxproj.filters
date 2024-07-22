@@ -30,6 +30,9 @@
     <ClCompile Include="stage-list.c">
       <Filter>소스 파일</Filter>
     </ClCompile>
+    <ClCompile Include="game-manager.c">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="lobby.h">
@@ -42,6 +45,9 @@
       <Filter>헤더 파일</Filter>
     </ClInclude>
     <ClInclude Include="stage-list.h">
+      <Filter>헤더 파일</Filter>
+    </ClInclude>
+    <ClInclude Include="game-manager.h">
       <Filter>헤더 파일</Filter>
     </ClInclude>
   </ItemGroup>

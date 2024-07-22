@@ -127,6 +127,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="game-manager.c" />
     <ClCompile Include="lobby.c" />
     <ClCompile Include="main.c" />
     <ClCompile Include="Player.c" />
@@ -134,6 +135,7 @@
     <ClCompile Include="stage-list.c" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="game-manager.h" />
     <ClInclude Include="lobby.h" />
     <ClInclude Include="Player.h" />
     <ClInclude Include="stage-list.h" />
