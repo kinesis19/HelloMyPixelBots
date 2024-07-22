@@ -27,6 +27,9 @@
     <ClCompile Include="Stage.c">
       <Filter>소스 파일</Filter>
     </ClCompile>
+    <ClCompile Include="stage-list.c">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="lobby.h">
@@ -36,6 +39,9 @@
       <Filter>헤더 파일</Filter>
     </ClInclude>
     <ClInclude Include="Stage.h">
+      <Filter>헤더 파일</Filter>
+    </ClInclude>
+    <ClInclude Include="stage-list.h">
       <Filter>헤더 파일</Filter>
     </ClInclude>
   </ItemGroup>
