@@ -1,7 +1,18 @@
+// 보안 경고 무시하기.
+#define _CRT_SECURE_NO_WARNINGS
+
 // 헤더파일 선언하기.
 #include <stdio.h>
 #include <Windows.h>
 #include <conio.h>
+#include <string.h>
+#include <stdlib.h>
+
+
+// 필요한 상수 선언하기.
+#define UP 72
+#define DOWN 80
+#define ENTER 13
 
 void SettingGUI_Lobby();
 static void SettingCursor(int x, int y);
@@ -9,13 +20,15 @@ static void SettingGUI_Lobby_Layout_Base();
 static void SettingGUI_Lobby_Layout_Dialog();
 static void SettingGUI_Lobby_Layout_Chapters();
 static void SettingGUI_Lobby_Layout_Chapter_1();
+static void Initializing_Command_Line();
+static void Initializing_Command_Line_Dialog();
+static void Typing_Command_Line_Dialog(char* type, int curCnt);
 
 void Lobby() {
 	// 콘솔창 초기화하기.
 	system("cls");
 	// 콘솔창 GUI Setting하기.
 	SettingGUI_Lobby();
-	_getch();
 }
 
 // Lobby GUI Setting하기.
@@ -29,6 +42,8 @@ void SettingGUI_Lobby() {
 	// 3. Chapters Layout 생성하기.
 	SettingGUI_Lobby_Layout_Chapters();
 
+	// 4. 커맨드 라인 호출하기.
+	Initializing_Command_Line();
 }
 
 static void SettingCursor(int x, int y) {
@@ -140,3 +155,209 @@ static void SettingGUI_Lobby_Layout_Chapter_1() {
 
 }
 
+// 커맨드 라인 초기화 하는 함수.
+static void Initializing_Command_Line() {
+	
+	// 변수 선언하기.
+	int curCnt = 1;
+	/*char* curMode = NULL;*/
+	char* curMode = (char*)malloc(30);
+
+	strcpy(curMode, "SelectMode");
+
+	SettingCursor(3, 41);
+	printf("What do you want to do?");
+	
+	SettingCursor(5, 44);
+	printf("[1]Enter The Chapter");
+
+	SettingCursor(5, 46);
+	printf("[2]Using the Tools");
+
+
+	// 키보드 입력 받기.
+	char inputKb;
+	while (1) {
+		if (_kbhit()) {
+			inputKb = _getch(); // VS 컴파일 에러 방지를 위해 getch() 대신 _getch() 사용. 
+			switch (inputKb) {
+			case UP:
+				if (strcmp(curMode, "SelectMode") == 0) {
+					if (curCnt > 1) {
+						curCnt--;
+					}
+				}else if (strcmp(curMode, "SelectChapters") == 0) {
+					if (curCnt > 1) {
+						curCnt--;
+					}
+				}else if (strcmp(curMode, "SelectStages") == 0) {
+					if (curCnt > 1) {
+						curCnt--;
+					}
+				}
+				break;
+			case DOWN:
+				if (strcmp(curMode, "SelectMode") == 0) {
+					if (curCnt < 2) {
+						curCnt++;
+					}
+				}else if (strcmp(curMode, "SelectChapters") == 0) {
+					if (curCnt < 2) {
+						curCnt++;
+					}
+				}else if (strcmp(curMode, "SelectStages") == 0) {
+					if (curCnt < 6) {
+						curCnt++;
+					}
+				}
+				break;
+			case ENTER:
+				if (strcmp(curMode, "SelectMode") == 0) {
+					// [1]Enter The Chapter일 때,
+					if (curCnt == 1) {
+						Initializing_Command_Line_Dialog();
+						Typing_Command_Line_Dialog(curMode, curCnt);
+						break;
+					}
+				}else if(strcmp(curMode, "SelectChapters") == 0){
+					// Chapter1 선택일 때,
+					if (curCnt == 1) {
+						Initializing_Command_Line_Dialog();
+						Typing_Command_Line_Dialog(curMode, curCnt);
+						break;
+					}
+				}else if(strcmp(curMode, "SelectStages") == 0){
+					// Stage1 선택일 때,
+					if (curCnt == 1) {
+						// Stage1로 이동하기.
+
+						break;
+					}else if(curCnt == 2){
+						//Stage2로 이동하기.
+
+						break;
+					}else if(curCnt == 3){
+						//Stage3로 이동하기.
+
+						break;
+					}else if(curCnt == 4){
+						//Stage4로 이동하기.
+
+						break;
+					}else if(curCnt == 5){
+						//Stage5로 이동하기.
+
+						break;
+					}else if(curCnt == 6){
+						//Lobby로 이동하기.
+						Lobby();
+						break;
+					}
+				}
+			default:
+				break;
+			}
+		}
+		// 화살표 출력 초기화 하기.
+		for (int i = 0; i < 2; i++) {
+			for (int j = 0; j < 3; j++) {
+				SettingCursor(3 + (j * 30), 44 + (i * 2));
+				printf(" ");
+				/*printf("!");*/
+			}
+		}
+		// 현재 선택된 곳만 화살표 출력하기.
+		if (strcmp(curMode, "SelectMode") == 0) {
+			SettingCursor(3, 42 + curCnt * 2);
+		}else if (strcmp(curMode, "SelectChapters") == 0) {
+			SettingCursor(3, 42 + curCnt * 2);
+		}else if (strcmp(curMode, "SelectStages") == 0) {
+			if (curCnt <= 2) {
+				SettingCursor(3, 42 + curCnt * 2);
+			}else if(curCnt <= 4){
+				SettingCursor(33, 42 + (curCnt - 2) * 2);
+			}else if(curCnt <= 6){
+				SettingCursor(63, 42 + (curCnt - 4) * 2);
+			}
+		}
+		printf(">");
+
+	}
+}
+
+// Command Line에서 Select 초기화하기.
+static void Initializing_Command_Line_Dialog() {
+	
+	// Dialog Line 초기화하기.
+	for (int i = 0; i < 50; i++) {
+		SettingCursor(3 + i, 41);
+		printf(" ");
+	}
+
+	// Select Line 초기화하기.
+	for (int i = 0; i < 2; i++) {
+		for (int j = 5; j < 50; j++) {
+			SettingCursor(j, 44 + i * 2);
+			printf(" ");
+		}
+	}
+}
+
+static void Typing_Command_Line_Dialog(char* type, int curCnt) {
+	if (strcmp(type, "SelectMode") == 0) {
+		SettingCursor(3, 41);
+		printf("What Chapter do you want to enter?");
+		SettingCursor(5, 44);
+		printf("[1]Chapter1");
+
+		SettingCursor(5, 46);
+		printf("[2]Chapter2");
+
+		strcpy(type, "SelectChapters");
+	}else if (strcmp(type, "SelectChapters") == 0) {
+		// Chapter1일 때,
+		if (curCnt == 1) {
+			SettingCursor(3, 41);
+			printf("What Stage do you want to enter?");
+			// 가독성 안 좋음.
+			/*int cnt = 0;
+			for (int i = 0; i < 3; i++) {
+				for (int j = 0; j < 2; j++) {
+					if (i < 1) {
+						SettingCursor(5, 44 + (j * 2));
+					}else if(i < 2){
+						SettingCursor(35, 44 + (j * 2));
+					}else if(i < 3){
+						SettingCursor(65, 44 + (j * 2));
+					}
+					cnt++;
+					if (cnt < 6) {
+						printf("[%d]Stage%d", cnt, cnt);
+					}else{
+						printf("[%d]Exit", cnt);
+					}
+				}
+			}*/
+
+			SettingCursor(5, 44);
+			printf("[1]Stage1");
+
+			SettingCursor(5, 46);
+			printf("[2]Stage2");
+
+			SettingCursor(35, 44);
+			printf("[3]Stage3");
+
+			SettingCursor(35, 46);
+			printf("[4]Stage4");
+
+			SettingCursor(65, 44);
+			printf("[5]Stage5");
+
+			SettingCursor(65, 46);
+			printf("[6]Exit");
+
+			strcpy(type, "SelectStages");
+		}
+	}
+}
