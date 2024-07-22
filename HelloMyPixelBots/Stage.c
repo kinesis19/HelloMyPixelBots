@@ -10,9 +10,10 @@
 
 // 소스코드 참조하기.
 #include "Player.h"
+#include "stage-list.h"
+#include "game-manager.h"
 
 void SettingGUI_Stage();
-static void SettingCursor(int x, int y);
 static void SettingGUI_Stage_Layout_Base();
 static void SettingGUI_Stage_Layout_Dialog();
 static void SettingGUI_Stage_Layout_Playground(); // Playground Layout 생성하기.
@@ -44,12 +45,10 @@ void SettingGUI_Stage() {
 	// 5. Editor Layout 생성하기.
 	SettingGUI_Stage_Layout_Editor();
 
-	_getch();
-}
+	// 6. Playground 맵 디자인하기.
+	DrawingGUI_Playground();
 
-static void SettingCursor(int x, int y) {
-	COORD coord = { x, y };
-	SetConsoleCursorPosition(GetStdHandle(STD_OUTPUT_HANDLE), coord);
+	_getch();
 }
 
 static void SettingGUI_Stage_Layout_Base() {
@@ -189,5 +188,16 @@ static void SettingGUI_Stage_Layout_Editor() {
 	// 세부 텍스트 작성하기.
 	SettingCursor(172, 1);
 	printf("[Editor]");
+
+}
+
+static void DrawingGUI_Playground() {
+	// Chapter1일 때,
+	if (player.selectChapter == 1) {
+		// Stage1일 때,
+		if (player.selectStage == 1) {
+			Drawing_Playground_Chapter1_Stage1();
+		}
+	}
 
 }
