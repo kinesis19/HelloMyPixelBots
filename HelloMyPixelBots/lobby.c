@@ -230,6 +230,7 @@ static void Initializing_Command_Line() {
 						// Stage1로 이동하기.
 						player.selectChapter = 1;
 						player.selectStage = 1;
+						free(curMode);
 						EnterToStage();
 						return 0;
 						break;
@@ -237,6 +238,7 @@ static void Initializing_Command_Line() {
 						//Stage2로 이동하기.
 						player.selectChapter = 1;
 						player.selectStage = 2;
+						free(curMode);
 						EnterToStage();
 						return 0;
 						break;
@@ -244,6 +246,7 @@ static void Initializing_Command_Line() {
 						//Stage3로 이동하기.
 						player.selectChapter = 1;
 						player.selectStage = 3;
+						free(curMode);
 						EnterToStage();
 						return 0;
 						break;
@@ -251,6 +254,7 @@ static void Initializing_Command_Line() {
 						//Stage4로 이동하기.
 						player.selectChapter = 1;
 						player.selectStage = 4;
+						free(curMode);
 						EnterToStage();
 						return 0;
 						break;
@@ -258,6 +262,7 @@ static void Initializing_Command_Line() {
 						//Stage5로 이동하기.
 						player.selectChapter = 1;
 						player.selectStage = 5;
+						free(curMode);
 						EnterToStage();
 						return 0;
 						break;
