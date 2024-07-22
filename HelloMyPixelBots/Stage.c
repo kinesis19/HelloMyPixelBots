@@ -8,6 +8,6 @@
 #include <string.h>
 #include <stdlib.h>
 
-void Stage() {
+void EnterToStage() {
 
 }
