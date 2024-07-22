@@ -7,6 +7,8 @@ void SettingGUI_Lobby();
 static void SettingCursor(int x, int y);
 static void SettingGUI_Lobby_Layout_Base();
 static void SettingGUI_Lobby_Layout_Dialog();
+static void SettingGUI_Lobby_Layout_Chapters();
+static void SettingGUI_Lobby_Layout_Chapter_1();
 
 void Lobby() {
 	// 콘솔창 초기화하기.
@@ -23,6 +25,9 @@ void SettingGUI_Lobby() {
 
 	// 2. Dialog Layout 생성하기.
 	SettingGUI_Lobby_Layout_Dialog();
+
+	// 3. Chapters Layout 생성하기.
+	SettingGUI_Lobby_Layout_Chapters();
 
 }
 
@@ -105,3 +110,33 @@ static void SettingGUI_Lobby_Layout_Dialog() {
 	printf("┴");
 
 }
+
+static void SettingGUI_Lobby_Layout_Chapters() {
+
+	// 1. Chapter_1 GUI를 생성하기.
+	SettingGUI_Lobby_Layout_Chapter_1();
+
+}
+
+static void SettingGUI_Lobby_Layout_Chapter_1() {
+
+	// 1. 텍스트 생성하기.
+	SettingCursor(20, 5);
+	printf("[Chapter 1]");
+
+	// (스테이지 클리어 현황 / 전체 스테이지)
+	SettingCursor(22, 6);
+	printf("(0/5)");
+
+	// 2. 챕터 그래픽 생성하기
+
+	for (int i = 10; i < 39; i+=2) { // ■ = 2칸 차지하므로, i+=2로 중복 생성을 방지함.
+		for (int j = 8; j < 30; j++) {
+			SettingCursor(i, j);
+			printf("■");
+		}
+
+	}
+
+}
+
