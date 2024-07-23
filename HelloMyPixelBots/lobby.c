@@ -9,7 +9,7 @@
 #include <stdlib.h>
 
 // 소스코드 참조하기.
-#include "Player.h"
+#include "pixelbot.h"
 #include "Stage.h"
 #include "game-manager.h"
 
@@ -229,8 +229,8 @@ static void Initializing_Command_Line() {
 					// Stage1 선택일 때,
 					if (curCnt == 1) {
 						// Stage1로 이동하기.
-						player.sw.selectChapter = 1;
-						player.sw.selectStage = 1;
+						pixelBot.sw.selectChapter = 1;
+						pixelBot.sw.selectStage = 1;
 						gameManager.selectStageName = 1;
 						free(curMode);
 						EnterToStage();
@@ -238,8 +238,8 @@ static void Initializing_Command_Line() {
 						break;
 					}else if(curCnt == 2){
 						//Stage2로 이동하기.
-						player.sw.selectChapter = 1;
-						player.sw.selectStage = 2;
+						pixelBot.sw.selectChapter = 1;
+						pixelBot.sw.selectStage = 2;
 						gameManager.selectStageName = 2;
 						free(curMode);
 						EnterToStage();
@@ -247,8 +247,8 @@ static void Initializing_Command_Line() {
 						break;
 					}else if(curCnt == 3){
 						//Stage3로 이동하기.
-						player.sw.selectChapter = 1;
-						player.sw.selectStage = 3;
+						pixelBot.sw.selectChapter = 1;
+						pixelBot.sw.selectStage = 3;
 						gameManager.selectStageName = 3;
 						free(curMode);
 						EnterToStage();
@@ -256,8 +256,8 @@ static void Initializing_Command_Line() {
 						break;
 					}else if(curCnt == 4){
 						//Stage4로 이동하기.
-						player.sw.selectChapter = 1;
-						player.sw.selectStage = 4;
+						pixelBot.sw.selectChapter = 1;
+						pixelBot.sw.selectStage = 4;
 						gameManager.selectStageName = 4;
 						free(curMode);
 						EnterToStage();
@@ -265,8 +265,8 @@ static void Initializing_Command_Line() {
 						break;
 					}else if(curCnt == 5){
 						//Stage5로 이동하기.
-						player.sw.selectChapter = 1;
-						player.sw.selectStage = 5;
+						pixelBot.sw.selectChapter = 1;
+						pixelBot.sw.selectStage = 5;
 						gameManager.selectStageName = 5;
 						free(curMode);
 						EnterToStage();
@@ -274,8 +274,8 @@ static void Initializing_Command_Line() {
 						break;
 					}else if(curCnt == 6){
 						//Lobby로 이동하기.
-						player.sw.selectChapter = 0;
-						player.sw.selectStage = 0;
+						pixelBot.sw.selectChapter = 0;
+						pixelBot.sw.selectStage = 0;
 						gameManager.selectChapterName = 0;
 						gameManager.selectStageName = 0;
 						Lobby();

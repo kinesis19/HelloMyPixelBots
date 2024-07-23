@@ -11,7 +11,7 @@
 // 소스코드 참조하기.
 #include "game-manager.h"
 #include "game-manager.h"
-#include "Player.h"
+#include "pixelbot.h"
 
 #define MAX_WIDTH 100 // Playground 가로 최대 길이.
 #define MAX_HEIGHT 40 // Playground 세로 최대 길이.
@@ -64,8 +64,8 @@ void Drawing_Playground_Chapter1_Stage1() {
 	SettingCursor(46, 17);
 	Setting_Color(SKYBLUE);
 	printf("▣");
-	player.sw.posX = 46;
-	player.sw.posY = 17;
+	pixelBot.sw.posX = 46;
+	pixelBot.sw.posY = 17;
 
 	// 3. 길 생성하기.
 	Setting_Color(DARK_GRAY);

@@ -11,7 +11,7 @@
 
 // 헤더파일 참조하기
 #include "game-manager.h"
-#include "Player.h"
+#include "pixelbot.h"
 #include "stage-list.h"
 
 // GameManager 구조체 전역 변수로 선언하기.
@@ -58,15 +58,15 @@ void MovingPixelBot(int x, int y) {
     Setting_Color(WHITE);
     SettingCursor(3, 41);
     printf("Pixelbot is Moving %s", gameManager.condition);
-    SettingCursor(player.sw.posX, player.sw.posY);
+    SettingCursor(pixelBot.sw.posX, pixelBot.sw.posY);
     printf("  ");
     SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), 11);
     COORD coord = { x, y };
-    player.sw.posX = x, player.sw.posY = y;
+    pixelBot.sw.posX = x, pixelBot.sw.posY = y;
     SetConsoleCursorPosition(GetStdHandle(STD_OUTPUT_HANDLE), coord);
     printf("▣");
     Sleep(500);
-    if (player.sw.posX == gameManager.posFinishX && player.sw.posY == gameManager.posFinishY) {
+    if (pixelBot.sw.posX == gameManager.posFinishX && pixelBot.sw.posY == gameManager.posFinishY) {
         gameManager.isStageClear = true;
         gameManager.isPassAPI = true;
         return 0;

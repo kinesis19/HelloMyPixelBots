@@ -21,7 +21,7 @@
     <ClCompile Include="lobby.c">
       <Filter>소스 파일</Filter>
     </ClCompile>
-    <ClCompile Include="Player.c">
+    <ClCompile Include="pixelbot.c">
       <Filter>소스 파일</Filter>
     </ClCompile>
     <ClCompile Include="Stage.c">
@@ -41,7 +41,7 @@
     <ClInclude Include="lobby.h">
       <Filter>헤더 파일</Filter>
     </ClInclude>
-    <ClInclude Include="Player.h">
+    <ClInclude Include="pixelbot.h">
       <Filter>헤더 파일</Filter>
     </ClInclude>
     <ClInclude Include="Stage.h">

@@ -11,7 +11,7 @@
 
 #include "game-manager.h"
 #include "editor-manager.h"
-#include "Player.h"
+#include "pixelbot.h"
 #include "main.h"
 #include "lobby.h"
 
@@ -104,7 +104,7 @@ static void Running_API(CommandList* commands, int cntCmd) {
 		}else if (sscanf(commands[i].command, "bot.MoveUp(%d)\n", &temp) == 1) {
 			gameManager.condition = "Up";
 			for (int j = 0; j < commands[i].step; j++) {
-				MovingPixelBot(player.sw.posX, player.sw.posY - 1);
+				MovingPixelBot(pixelBot.sw.posX, pixelBot.sw.posY - 1);
 				if(gameManager.isPassAPI == true){ // Dialog가 중복 생성되어 오랫동안 게임이 지연되는 것을 방지하기 위함.
 					break;
 				}
@@ -112,7 +112,7 @@ static void Running_API(CommandList* commands, int cntCmd) {
 		}else if (sscanf(commands[i].command, "bot.MoveDown(%d)\n", &temp) == 1) {
 			gameManager.condition = "Down";
 			for (int j = 0; j < commands[i].step; j++) {
-				MovingPixelBot(player.sw.posX, player.sw.posY + 1);
+				MovingPixelBot(pixelBot.sw.posX, pixelBot.sw.posY + 1);
 				if (gameManager.isPassAPI == true) { // Dialog가 중복 생성되어 오랫동안 게임이 지연되는 것을 방지하기 위함.
 					break;
 				}
@@ -120,7 +120,7 @@ static void Running_API(CommandList* commands, int cntCmd) {
 		}else if (sscanf(commands[i].command, "bot.MoveLeft(%d)\n", &temp) == 1) {
 			gameManager.condition = "Left";
 			for (int j = 0; j < commands[i].step; j++) {
-				MovingPixelBot(player.sw.posX - 2, player.sw.posY); // ▣ : 2칸 이므로 2칸씨 이동함. (가로 한정)
+				MovingPixelBot(pixelBot.sw.posX - 2, pixelBot.sw.posY); // ▣ : 2칸 이므로 2칸씨 이동함. (가로 한정)
 				if (gameManager.isPassAPI == true) { // Dialog가 중복 생성되어 오랫동안 게임이 지연되는 것을 방지하기 위함.
 					break;
 				}
@@ -128,7 +128,7 @@ static void Running_API(CommandList* commands, int cntCmd) {
 		}else if (sscanf(commands[i].command, "bot.MoveRight(%d)\n", &temp) == 1) {
 			gameManager.condition = "Right";
 			for (int j = 0; j < commands[i].step; j++) {
-				MovingPixelBot(player.sw.posX + 2, player.sw.posY); // ▣ : 2칸 이므로 2칸씨 이동함. (가로 한정)
+				MovingPixelBot(pixelBot.sw.posX + 2, pixelBot.sw.posY); // ▣ : 2칸 이므로 2칸씨 이동함. (가로 한정)
 				if (gameManager.isPassAPI == true) { // Dialog가 중복 생성되어 오랫동안 게임이 지연되는 것을 방지하기 위함.
 					break;
 				}

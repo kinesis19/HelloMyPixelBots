@@ -5,7 +5,7 @@
 
 // 소스코드 참조하기.
 #include "lobby.h"
-#include "Player.h"
+#include "pixelbot.h"
 #include "game-manager.h"
 
 // 필요한 상수 선언하기.
@@ -29,7 +29,7 @@ int main() {
     system("mode con:cols=200 lines=50");
 
     // Player Data 초기화하기.
-    InitializingPlayer();
+    InitializingPixelBot();
 
     system("cls");
     // ■ 하나 : 2칸 확보.

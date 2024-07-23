@@ -130,7 +130,7 @@
     <ClCompile Include="game-manager.c" />
     <ClCompile Include="lobby.c" />
     <ClCompile Include="main.c" />
-    <ClCompile Include="Player.c" />
+    <ClCompile Include="pixelbot.c" />
     <ClCompile Include="editor-manager.c" />
     <ClCompile Include="Stage.c" />
     <ClCompile Include="stage-list.c" />
@@ -139,7 +139,7 @@
     <ClInclude Include="game-manager.h" />
     <ClInclude Include="lobby.h" />
     <ClInclude Include="main.h" />
-    <ClInclude Include="Player.h" />
+    <ClInclude Include="pixelbot.h" />
     <ClInclude Include="editor-manager.h" />
     <ClInclude Include="stage-list.h" />
     <ClInclude Include="Stage.h" />
