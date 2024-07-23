@@ -12,6 +12,7 @@
 #include "Player.h"
 #include "stage-list.h"
 #include "game-manager.h"
+#include "editor-manager.h"
 
 void SettingGUI_Stage();
 static void SettingGUI_Stage_Layout_Base();
@@ -19,12 +20,14 @@ static void SettingGUI_Stage_Layout_Dialog();
 static void SettingGUI_Stage_Layout_Playground(); // Playground Layout 생성하기.
 static void SettingGUI_Stage_Layout_View(); // View Layout 생성하기(전투, 이벤트 상황 출력).
 static void SettingGUI_Stage_Layout_Editor(); // Editor Layout 생성하기(스크립트 작성 출력).
+static void SettingGUI_Stage_Layout_APIList(); // API List Layout 생성하기(Editor에 작성할 API들 출력).
 static void DrawingGUI_Playground();
+static void Initializing_Command_Line();
 
 void EnterToStage() {
 	system("cls");
 	SettingGUI_Stage();
-	/*printf("%d, %d", player.selectChapter, player.selectStage);*/
+	Initializing_Command_Line();
 }
 
 
@@ -45,10 +48,11 @@ void SettingGUI_Stage() {
 	// 5. Editor Layout 생성하기.
 	SettingGUI_Stage_Layout_Editor();
 
-	// 6. Playground 맵 디자인하기.
-	DrawingGUI_Playground();
+	// 6. API Layout 생성하기.
+	SettingGUI_Stage_Layout_APIList();
 
-	_getch();
+	// 7. Playground 맵 디자인하기.
+	DrawingGUI_Playground();
 }
 
 static void SettingGUI_Stage_Layout_Base() {
@@ -127,7 +131,7 @@ static void SettingGUI_Stage_Layout_Dialog() {
 }
 
 static void SettingGUI_Stage_Layout_Playground() {
-	for (int i = 11; i < 101; i++) {
+	for (int i = 11; i < 150; i++) {
 		SettingCursor(i, 38);
 		printf("─");
 	}
@@ -135,16 +139,17 @@ static void SettingGUI_Stage_Layout_Playground() {
 	SettingCursor(101, 0);
 	printf("┬");
 
-	for (int i = 1; i < 40; i++) {
+	for (int i = 1; i < 48; i++) {
 		SettingCursor(101, i);
 		printf("│");
 	}
+
+	SettingCursor(101, 48);
+	printf("┴");
 	SettingCursor(0, 2);
 	printf("├");
 	SettingCursor(101, 40);
-	printf("┴");
-	SettingCursor(101, 38);
-	printf("┤");
+	printf("┼");
 	
 	for (int i = 2; i < 197; i++) {
 		SettingCursor(i, 2);
@@ -191,6 +196,38 @@ static void SettingGUI_Stage_Layout_Editor() {
 
 }
 
+static void SettingGUI_Stage_Layout_APIList() {
+
+	// 세부 텍스트 세팅하기.
+	SettingCursor(122, 39);
+	printf("[API List]");
+
+	int cntLine = 1;
+	for (int i = 0; i < 20; i++) {
+		SettingCursor(152, 3 + cntLine);
+		printf("%2d", cntLine);
+		cntLine++;
+	}
+
+	if (player.selectChapter == 1) {
+		if (player.selectStage == 1) {
+			SettingCursor(104, 41);
+			printf("Start() : Start to pixelBot");
+			SettingCursor(104, 42);
+			printf("Stop() : Stop to pixelBot");
+			SettingCursor(104, 43);
+			printf("bot.MoveUp(step) : Move pixelBot up by step.");
+			SettingCursor(104, 44);
+			printf("bot.MoveDown(step) : Move pixelBot down by step.");
+			SettingCursor(104, 45);
+			printf("bot.MoveLeft(step) : Move pixelBot left by step.");
+			SettingCursor(104, 46);
+			printf("bot.MoveRight(step) : Move pixelBot right by step.");
+		}
+	}
+
+}
+
 static void DrawingGUI_Playground() {
 	// Chapter1일 때,
 	if (player.selectChapter == 1) {
@@ -199,5 +236,14 @@ static void DrawingGUI_Playground() {
 			Drawing_Playground_Chapter1_Stage1();
 		}
 	}
+
+}
+
+
+// 커맨드 라인 초기화 하는 함수.
+static void Initializing_Command_Line() {
+
+	// API 입력 받기.
+	Typing_API_To_Editor();
 
 }
