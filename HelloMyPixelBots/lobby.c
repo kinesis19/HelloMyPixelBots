@@ -220,6 +220,7 @@ static void Initializing_Command_Line() {
 				}else if(strcmp(curMode, "SelectChapters") == 0){
 					// Chapter1 선택일 때,
 					if (curCnt == 1) {
+						gameManager.selectChapterName = 1;
 						Initializing_Command_Line_Dialog();
 						Typing_Command_Line_Dialog(curMode, curCnt);
 						break;
@@ -230,6 +231,7 @@ static void Initializing_Command_Line() {
 						// Stage1로 이동하기.
 						player.selectChapter = 1;
 						player.selectStage = 1;
+						gameManager.selectStageName = 1;
 						free(curMode);
 						EnterToStage();
 						return 0;
@@ -238,6 +240,7 @@ static void Initializing_Command_Line() {
 						//Stage2로 이동하기.
 						player.selectChapter = 1;
 						player.selectStage = 2;
+						gameManager.selectStageName = 2;
 						free(curMode);
 						EnterToStage();
 						return 0;
@@ -246,6 +249,7 @@ static void Initializing_Command_Line() {
 						//Stage3로 이동하기.
 						player.selectChapter = 1;
 						player.selectStage = 3;
+						gameManager.selectStageName = 3;
 						free(curMode);
 						EnterToStage();
 						return 0;
@@ -254,6 +258,7 @@ static void Initializing_Command_Line() {
 						//Stage4로 이동하기.
 						player.selectChapter = 1;
 						player.selectStage = 4;
+						gameManager.selectStageName = 4;
 						free(curMode);
 						EnterToStage();
 						return 0;
@@ -262,6 +267,7 @@ static void Initializing_Command_Line() {
 						//Stage5로 이동하기.
 						player.selectChapter = 1;
 						player.selectStage = 5;
+						gameManager.selectStageName = 5;
 						free(curMode);
 						EnterToStage();
 						return 0;
@@ -270,6 +276,8 @@ static void Initializing_Command_Line() {
 						//Lobby로 이동하기.
 						player.selectChapter = 0;
 						player.selectStage = 0;
+						gameManager.selectChapterName = 0;
+						gameManager.selectStageName = 0;
 						Lobby();
 						break;
 					}
@@ -339,25 +347,6 @@ static void Typing_Command_Line_Dialog(char* type, int curCnt) {
 		if (curCnt == 1) {
 			SettingCursor(3, 41);
 			printf("What Stage do you want to enter?");
-			// 가독성 안 좋음.
-			/*int cnt = 0;
-			for (int i = 0; i < 3; i++) {
-				for (int j = 0; j < 2; j++) {
-					if (i < 1) {
-						SettingCursor(5, 44 + (j * 2));
-					}else if(i < 2){
-						SettingCursor(35, 44 + (j * 2));
-					}else if(i < 3){
-						SettingCursor(65, 44 + (j * 2));
-					}
-					cnt++;
-					if (cnt < 6) {
-						printf("[%d]Stage%d", cnt, cnt);
-					}else{
-						printf("[%d]Exit", cnt);
-					}
-				}
-			}*/
 
 			SettingCursor(5, 44);
 			printf("[1]Stage1");
