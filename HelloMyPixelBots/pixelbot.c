@@ -18,4 +18,6 @@ void InitializingPixelBot() {
 	pixelBot.sw.selectStage = 0;
 	pixelBot.sw.posX = 0;
 	pixelBot.sw.posY = 0;
+	pixelBot.sw.expNow = 0;
+	pixelBot.sw.expMax = 10;
 }
