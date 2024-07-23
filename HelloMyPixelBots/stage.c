@@ -316,8 +316,10 @@ static void Initializing_Command_Line() {
 	if (gameManager.isStageClear == true) {
 		Setting_Color(YELLOW);
 		printf("Stage Clear!!");
-	}
-	else {
+		Setting_Color(WHITE);
+		Updating_Pixelbot_Info(); // Stage 클리어시 보상 획득하기.
+		SettingGUI_Stage_Layout_PixelBotInfo(); // PixelBot의 최신 상태 표시하기.
+	}else {
 		Setting_Color(RED);
 		printf("Stage Clear Failed!!");
 	}
