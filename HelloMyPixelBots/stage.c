@@ -306,7 +306,7 @@ static void Initializing_Command_Line() {
 			SettingCursor(j, i);
 			printf(" ");
 			// Dialog-Command Resetting
-			SettingCursor(j, 44);
+			SettingCursor(j, 45);
 			printf(" ");
 		}
 	}
