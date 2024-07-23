@@ -65,7 +65,7 @@ int main() {
 
     // 버튼 출력하기.
     printf("\n\n\n\n");
-    printf("\t\t\t\t\t\t\t\t\t\t\t[1]New Game\n\n");
+    printf("\t\t\t\t\t\t\t\t\t\t\t[1]Game Start\n\n");
     /*printf("\t\t\t\t\t\t\t\t\t\t\t[2]Load Game(Next Update)\n\n");
     printf("\t\t\t\t\t\t\t\t\t\t\t[3]Settings(Next Update)\n\n");*/
     printf("\t\t\t\t\t\t\t\t\t\t\t[2]Exit\n\n\n\n\n\n");
