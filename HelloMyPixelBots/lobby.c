@@ -10,7 +10,7 @@
 
 // 소스코드 참조하기.
 #include "pixelbot.h"
-#include "Stage.h"
+#include "stage.h"
 #include "game-manager.h"
 
 // 필요한 상수 선언하기.
