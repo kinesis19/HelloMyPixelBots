@@ -264,20 +264,18 @@ static void SettingGUI_Stage_Layout_APIList() {
 	}
 
 	if (pixelBot.sw.selectChapter == 1) {
-		if (pixelBot.sw.selectStage == 1) {
-			SettingCursor(104, 41);
-			printf("Start() : Start to pixelBot");
-			SettingCursor(104, 42);
-			printf("Stop() : Stop to pixelBot");
-			SettingCursor(104, 43);
-			printf("bot.MoveUp(step) : Move pixelBot up by step.");
-			SettingCursor(104, 44);
-			printf("bot.MoveDown(step) : Move pixelBot down by step.");
-			SettingCursor(104, 45);
-			printf("bot.MoveLeft(step) : Move pixelBot left by step.");
-			SettingCursor(104, 46);
-			printf("bot.MoveRight(step) : Move pixelBot right by step.");
-		}
+		SettingCursor(104, 41);
+		printf("Start() : Start to pixelBot");
+		SettingCursor(104, 42);
+		printf("Stop() : Stop to pixelBot");
+		SettingCursor(104, 43);
+		printf("bot.MoveUp(step) : Move pixelBot up by step.");
+		SettingCursor(104, 44);
+		printf("bot.MoveDown(step) : Move pixelBot down by step.");
+		SettingCursor(104, 45);
+		printf("bot.MoveLeft(step) : Move pixelBot left by step.");
+		SettingCursor(104, 46);
+		printf("bot.MoveRight(step) : Move pixelBot right by step.");
 	}
 
 }
@@ -288,6 +286,8 @@ static void DrawingGUI_Playground() {
 		// Stage1¿œ ∂ß,
 		if (pixelBot.sw.selectStage == 1) {
 			Drawing_Playground_Chapter1_Stage1();
+		}else if(pixelBot.sw.selectStage == 2){
+			Drawing_Playground_Chapter1_Stage2();
 		}
 	}
 
