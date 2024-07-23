@@ -31,6 +31,7 @@ static void SettingGUI_Stage_Layout_Editor(); // Editor Layout 생성하기(스크립트
 static void SettingGUI_Stage_Layout_APIList(); // API List Layout 생성하기(Editor에 작성할 API들 출력).
 static void DrawingGUI_Playground();
 static void Initializing_Command_Line();
+void SettingGUI_Stage_Layout_PixelBotInfo(); // PixelBot의 정보(level, exp, hp 등을 업데이트함.)
 
 void EnterToStage() {
 	system("cls");
@@ -191,11 +192,45 @@ static void SettingGUI_Stage_Layout_View() {
 	SettingCursor(150, 2);
 	printf("┼");
 
+	// Mid Line 세팅하기.
+	SettingCursor(101, 20);
+	printf("├");
+
+	for (int i = 102; i < 149; i++) {
+		printf("─");
+	}
+	SettingCursor(150, 20);
+	printf("┤");
+
+
 	// 세부 텍스트 작성하기.
 	SettingCursor(123, 1);
 	printf("[View]");
 
+	SettingGUI_Stage_Layout_PixelBotInfo();
 }
+
+void SettingGUI_Stage_Layout_PixelBotInfo() {
+	// PixelBot 정보 작성하기.
+
+	SettingCursor(118, 3);
+	printf("[PixelBot] Lv.%d", pixelBot.sw.level);
+
+	SettingCursor(120, 5);
+	printf("Exp : %d/%d", pixelBot.sw.expNow, pixelBot.sw.expMax);
+
+	// PixelBot 그리기
+	Setting_Color(SKYBLUE);
+	for (int i = 0; i < 8; i++) {
+		for (int j = 0; j < 8; j++) {
+			SettingCursor(118 + (i * 2), 7 + (j * 1));
+			printf("▣");
+		}
+	}
+
+	Setting_Color(WHITE);
+}
+
 
 static void SettingGUI_Stage_Layout_Editor() {
 	// 세부 텍스트 작성하기.
