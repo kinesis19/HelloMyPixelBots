@@ -18,7 +18,7 @@
 void Typing_API_To_Editor();
 static void Updating_Editor(int cntLine, char* textAPI); // 입력 받은 API를 Editor Layout에 표시하기.
 static void Running_API(CommandList* commands , int cntCmd); // 입력된 API들을 실행합니다.
-static void Clearning_Dialog(); // Dialog를 초기화힙니다.
+void Clearning_Dialog(); // Dialog를 초기화힙니다.
 
 void Typing_API_To_Editor() {
 	CommandList *commands = malloc(MAXIMUM_CMD * sizeof(CommandList));
@@ -30,6 +30,13 @@ void Typing_API_To_Editor() {
 		char inputAPI[100];
 
 		Clearning_Dialog();
+
+		Setting_Color(WHITE);
+		SettingCursor(3, 41);
+		printf("Enter the API and move pixelBot to the 'Finish point'!");
+
+		SettingCursor(3, 44);
+		printf("> ");
 
 		fgets(inputAPI, sizeof(inputAPI), stdin);
 
@@ -87,24 +94,42 @@ static void Running_API(CommandList* commands, int cntCmd) {
 	int temp;
 	for (int i = 0; i < cntCmd; i++) {
 		if (strcmp(commands[i].command, "Start()\n") == 0) {
-
+			gameManager.condition = "Start";
 		}else if (sscanf(commands[i].command, "bot.MoveUp(%d)\n", &temp) == 1) {
+			gameManager.condition = "Up";
 			for (int j = 0; j < commands[i].step; j++) {
 				MovingPixelBot(player.posX, player.posY - 1);
+				if(gameManager.isPassAPI == true){ // Dialog가 중복 생성되어 오랫동안 게임이 지연되는 것을 방지하기 위함.
+					break;
+				}
 			}
 		}else if (sscanf(commands[i].command, "bot.MoveDown(%d)\n", &temp) == 1) {
+			gameManager.condition = "Down";
 			for (int j = 0; j < commands[i].step; j++) {
 				MovingPixelBot(player.posX, player.posY + 1);
+				if (gameManager.isPassAPI == true) { // Dialog가 중복 생성되어 오랫동안 게임이 지연되는 것을 방지하기 위함.
+					break;
+				}
 			}
 		}else if (sscanf(commands[i].command, "bot.MoveLeft(%d)\n", &temp) == 1) {
+			gameManager.condition = "Left";
 			for (int j = 0; j < commands[i].step; j++) {
 				MovingPixelBot(player.posX - 2, player.posY); // ▣ : 2칸 이므로 2칸씨 이동함. (가로 한정)
+				if (gameManager.isPassAPI == true) { // Dialog가 중복 생성되어 오랫동안 게임이 지연되는 것을 방지하기 위함.
+					break;
+				}
 			}
 		}else if (sscanf(commands[i].command, "bot.MoveRight(%d)\n", &temp) == 1) {
+			gameManager.condition = "Right";
 			for (int j = 0; j < commands[i].step; j++) {
 				MovingPixelBot(player.posX + 2, player.posY); // ▣ : 2칸 이므로 2칸씨 이동함. (가로 한정)
+				if (gameManager.isPassAPI == true) { // Dialog가 중복 생성되어 오랫동안 게임이 지연되는 것을 방지하기 위함.
+					break;
+				}
 			}
 		}
+		gameManager.isPassAPI = false;
+
 	}
 	// 커맨드 라인에 있는 모든 텍스트 초기화 하기
 	for (int i = 41; i < 44; i++) {
@@ -131,7 +156,7 @@ static void Running_API(CommandList* commands, int cntCmd) {
 
 }
 
-static void Clearning_Dialog() {
+void Clearning_Dialog() {
 
 	// 커맨드 라인에 있는 모든 텍스트 초기화 하기
 	for (int i = 41; i < 44; i++) {
@@ -144,10 +169,4 @@ static void Clearning_Dialog() {
 			printf(" ");
 		}
 	}
-	Setting_Color(WHITE);
-	SettingCursor(3, 41);
-	printf("Enter the API and move pixelBot to the 'Finish point'!");
-
-	SettingCursor(3, 44);
-	printf("> ");
 }

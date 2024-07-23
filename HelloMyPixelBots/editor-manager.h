@@ -5,3 +5,4 @@ typedef struct {
 } CommandList;
 
 void Typing_API_To_Editor();
+void Clearning_Dialog();
