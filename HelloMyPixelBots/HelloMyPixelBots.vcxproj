@@ -138,6 +138,7 @@
   <ItemGroup>
     <ClInclude Include="game-manager.h" />
     <ClInclude Include="lobby.h" />
+    <ClInclude Include="main.h" />
     <ClInclude Include="Player.h" />
     <ClInclude Include="editor-manager.h" />
     <ClInclude Include="stage-list.h" />
