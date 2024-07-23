@@ -18,4 +18,6 @@ void InitializingPlayer() {
 	player.selectStage = 0;
 	player.posX = 0;
 	player.posY = 0;
+	player.posFinishX = 0;
+	player.posFinishY = 0;
 }

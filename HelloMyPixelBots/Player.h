@@ -9,6 +9,8 @@ typedef struct _Player {
 	int selectStage;
 	int posX; // 현재 Player(=PixelBot)의 position X값.
 	int posY; // 현재 Player(=PixelBot)의 position Y값.
+	int posFinishX; // Finish Point의 position X값.
+	int posFinishY; // Finish Point의 position Y값.
 
 }Player;
 
