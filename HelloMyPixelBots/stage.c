@@ -32,6 +32,7 @@ static void SettingGUI_Stage_Layout_APIList(); // API List Layout 생성하기(Edito
 static void DrawingGUI_Playground();
 static void Initializing_Command_Line();
 void SettingGUI_Stage_Layout_PixelBotInfo(); // PixelBot의 정보(level, exp, hp 등을 업데이트함.)
+static void Showing_Stage_Hint();
 
 void EnterToStage() {
 	system("cls");
@@ -317,11 +318,30 @@ static void Initializing_Command_Line() {
 		Setting_Color(YELLOW);
 		printf("Stage Clear!!");
 		Setting_Color(WHITE);
+		SettingCursor(5, 46);
 		Updating_Pixelbot_Info(); // Stage 클리어시 보상 획득하기.
 		SettingGUI_Stage_Layout_PixelBotInfo(); // PixelBot의 최신 상태 표시하기.
+
+		if (pixelBot.sw.selectChapter == 1) {
+			if (pixelBot.sw.selectStage == 1) {
+				pixelBot.sw.clearChapters[0][0] = 1;
+			}else if (pixelBot.sw.selectStage == 2) {
+				pixelBot.sw.clearChapters[0][1] = 1;
+			}else if (pixelBot.sw.selectStage == 3) {
+				pixelBot.sw.clearChapters[0][2] = 1;
+			}else if (pixelBot.sw.selectStage == 4) {
+				pixelBot.sw.clearChapters[0][3] = 1;
+			}else if (pixelBot.sw.selectStage == 5) {
+				pixelBot.sw.clearChapters[0][4] = 1;
+			}
+		}
+
 	}else {
 		Setting_Color(RED);
 		printf("Stage Clear Failed!!");
+
+		SettingCursor(5, 46);
+		printf("[2]Check the Hint");
 	}
 
 	SettingCursor(3, 42);
@@ -331,13 +351,11 @@ static void Initializing_Command_Line() {
 	SettingCursor(5, 44);
 	printf("[1]Go to the Lobby Scene");
 
-	SettingCursor(5, 46);
-	printf("[2]Go to the Main Scene");
 
 
 	// 변수 선언하기.
 	int curCnt = 1;
-
+	boolean isOpenHint = false;
 
 	SettingCursor(4, 44);
 	// 키보드 입력 받기.
@@ -348,24 +366,30 @@ static void Initializing_Command_Line() {
 			inputKb = _getch();
 			switch (inputKb) {
 			case UP:
-				if (curCnt > 1) {
+				if (curCnt > 1 && isOpenHint == false) {
 					curCnt--;
 				}
 				break;
 			case DOWN:
-				if (curCnt < 2) {
+				if (gameManager.isStageClear == true) {
+					break;
+				}
+				if (curCnt < 2 && isOpenHint == false) {
 					curCnt++;
 				}
 				break;
 			case ENTER:
-				if (curCnt == 1) {
-					Lobby();
-					return 0;
+				if (isOpenHint == true) {
+					EnterToStage();
 					break;
 				}
-				else if (curCnt == 2) {
-					main();
+				if (curCnt == 1) {
+					gameManager.isStageClear = false;
+					Lobby();
 					return 0;
+				}else if (curCnt == 2) {
+					Showing_Stage_Hint();
+					isOpenHint = true;
 					break;
 				}
 			default:
@@ -380,6 +404,20 @@ static void Initializing_Command_Line() {
 		// 현재 선택된 곳만 화살표 출력하기.
 		SettingCursor(4, 42 + curCnt * 2);
 		printf(">");
+	}
+
+}
+
+static void Showing_Stage_Hint() {
+	Clearning_Dialog();
+	if (pixelBot.sw.selectChapter == 1) {
+		if (pixelBot.sw.selectStage == 1) {
+			SettingCursor(3, 41);
+			printf("[Hint] What about using the 'bot.MoveRight' API? ");
+
+			SettingCursor(5, 46);
+			printf("[2]Back to the Stage");
+		}
 	}
 
 }
