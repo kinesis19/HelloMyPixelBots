@@ -7,12 +7,20 @@
 #include <conio.h>
 #include <string.h>
 #include <stdlib.h>
+#include <stdbool.h>
 
-// 소스코드 참조하기.
-#include "pixelbot.h"
-#include "stage-list.h"
 #include "game-manager.h"
 #include "editor-manager.h"
+#include "pixelbot.h"
+#include "main.h"
+#include "lobby.h"
+#include "stage-list.h"
+
+
+// 필요한 상수 선언하기.
+#define UP 72
+#define DOWN 80
+#define ENTER 13
 
 void SettingGUI_Stage();
 static void SettingGUI_Stage_Layout_Base();
@@ -245,5 +253,86 @@ static void Initializing_Command_Line() {
 
 	// API 입력 받기.
 	Typing_API_To_Editor();
+
+	// 커맨드 라인에 있는 모든 텍스트 초기화 하기
+	for (int i = 41; i < 44; i++) {
+		for (int j = 3; j < 100; j++) {
+			// Dialog-Top Resetting
+			SettingCursor(j, i);
+			printf(" ");
+			// Dialog-Command Resetting
+			SettingCursor(j, 44);
+			printf(" ");
+		}
+	}
+	SettingCursor(3, 41);
+
+	// 스테이지 클리어시,
+	if (gameManager.isStageClear == true) {
+		Setting_Color(YELLOW);
+		printf("Stage Clear!!");
+	}
+	else {
+		Setting_Color(RED);
+		printf("Stage Clear Failed!!");
+	}
+
+	SettingCursor(3, 42);
+	Setting_Color(WHITE);
+	printf("What do you want to do?");
+
+	SettingCursor(5, 44);
+	printf("[1]Go to the Lobby Scene");
+
+	SettingCursor(5, 46);
+	printf("[2]Go to the Main Scene");
+
+
+	// 변수 선언하기.
+	int curCnt = 1;
+
+
+	SettingCursor(4, 44);
+	// 키보드 입력 받기.
+	char inputKb;
+	while (1) {
+		HidingCursor();
+		if (_kbhit()) {
+			inputKb = _getch();
+			switch (inputKb) {
+			case UP:
+				if (curCnt > 1) {
+					curCnt--;
+				}
+				break;
+			case DOWN:
+				if (curCnt < 2) {
+					curCnt++;
+				}
+				break;
+			case ENTER:
+				if (curCnt == 1) {
+					Lobby();
+					return 0;
+					break;
+				}
+				else if (curCnt == 2) {
+					main();
+					return 0;
+					break;
+				}
+			default:
+				break;
+			}
+		}
+		// 화살표 출력 초기화 하기.
+		for (int i = 0; i < 2; i++) {
+			SettingCursor(4, 44 + i * 2);
+			printf(" ");
+		}
+		// 현재 선택된 곳만 화살표 출력하기.
+		SettingCursor(4, 42 + curCnt * 2);
+		printf(">");
+	}
 
 }
