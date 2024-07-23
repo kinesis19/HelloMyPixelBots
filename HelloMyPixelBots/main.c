@@ -66,9 +66,9 @@ int main() {
     // 버튼 출력하기.
     printf("\n\n\n\n");
     printf("\t\t\t\t\t\t\t\t\t\t\t[1]New Game\n\n");
-    printf("\t\t\t\t\t\t\t\t\t\t\t[2]Load Game(Impossible)\n\n");
-    printf("\t\t\t\t\t\t\t\t\t\t\t[3]Settings\n\n");
-    printf("\t\t\t\t\t\t\t\t\t\t\t[4]Exit\n\n\n\n\n\n");
+    /*printf("\t\t\t\t\t\t\t\t\t\t\t[2]Load Game(Next Update)\n\n");
+    printf("\t\t\t\t\t\t\t\t\t\t\t[3]Settings(Next Update)\n\n");*/
+    printf("\t\t\t\t\t\t\t\t\t\t\t[2]Exit\n\n\n\n\n\n");
 
     printf("\t\t\t\t\t\t\t\t↑ : Choose Top | ↓ : Choose Down | Enter : Select |");
 
@@ -89,7 +89,7 @@ int main() {
                 }
                 break;
             case DOWN:
-                if (curCnt < 4) {
+                if (curCnt < 2) {
                     curCnt++;
                 }
                 break;
@@ -98,7 +98,7 @@ int main() {
                     Lobby();
                     return 0;
                     break;
-                }else if(curCnt == 4){
+                }else if(curCnt == 2){
                     system("cls");
                     printf("\n\n게임을 종료하였습니다.\n\n");
                     return 0;
