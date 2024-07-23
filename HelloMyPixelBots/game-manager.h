@@ -21,6 +21,8 @@ enum ColorType {
 typedef struct _GameManager {
 	int posFinishX; // Finish Point의 position X값.
 	int posFinishY; // Finish Point의 position Y값.
+	boolean isStageClear;
+
 }GameManager;
 
 extern GameManager gameManager;
