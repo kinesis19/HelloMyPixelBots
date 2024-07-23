@@ -11,6 +11,7 @@
 // 소스코드 참조하기.
 #include "game-manager.h"
 #include "game-manager.h"
+#include "Player.h"
 
 void Drawing_Playground_Chapter1_Stage1();
 
@@ -37,6 +38,8 @@ void Drawing_Playground_Chapter1_Stage1() {
 	SettingCursor(46, 17);
 	Setting_Color(SKYBLUE);
 	printf("▣");
+	player.posX = 46;
+	player.posY = 17;
 
 	// 3. 길 생성하기.
 	Setting_Color(DARK_GRAY);
@@ -51,5 +54,7 @@ void Drawing_Playground_Chapter1_Stage1() {
 	Setting_Color(YELLOW);
 	SettingCursor(54, 17);
 	printf("★");
+	gameManager.posFinishX = 54;
+	gameManager.posFinishY = 17;
 
 }
