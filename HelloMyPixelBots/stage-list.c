@@ -21,13 +21,6 @@ void Drawing_Playground_Chapter1_Stage1();
 void InitializingScreenBuffer();
 int Detecting_Objects(int x, int y, char ch);
 
-/* 메모
-* 1. ■
-* 흰색 : 벽
-* 하늘색 : 플레이어
-
-*/
-
 // 버퍼 초기화하기.
 void InitializingScreenBuffer() {
 	for (int i = 0; i < MAX_HEIGHT; i++) {
