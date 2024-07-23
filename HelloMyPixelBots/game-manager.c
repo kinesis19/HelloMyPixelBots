@@ -68,6 +68,7 @@ void MovingPixelBot(int x, int y) {
     Sleep(500);
     if (player.posX == gameManager.posFinishX && player.posY == gameManager.posFinishY) {
         gameManager.isStageClear = true;
+        gameManager.isPassAPI = true;
         return 0;
     }
 }
