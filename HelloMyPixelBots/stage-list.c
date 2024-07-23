@@ -13,7 +13,13 @@
 #include "game-manager.h"
 #include "Player.h"
 
+#define MAX_WIDTH 100 // Playground 가로 최대 길이.
+#define MAX_HEIGHT 40 // Playground 세로 최대 길이.
+char screenBuffer[MAX_HEIGHT][MAX_WIDTH];
+
 void Drawing_Playground_Chapter1_Stage1();
+void InitializingScreenBuffer();
+int Detecting_Objects(int x, int y, char ch);
 
 /* 메모
 * 1. ■
@@ -21,6 +27,23 @@ void Drawing_Playground_Chapter1_Stage1();
 * 하늘색 : 플레이어
 
 */
+
+// 버퍼 초기화하기.
+void InitializingScreenBuffer() {
+	for (int i = 0; i < MAX_HEIGHT; i++) {
+		for (int j = 0; j < MAX_WIDTH; j++) {
+			screenBuffer[i][j] = ' '; // 공백으로 초기화하기.
+		}
+	}
+}
+
+int Detecting_Objects(int x, int y, char ch) {
+	if (x < MAX_WIDTH && y < MAX_HEIGHT && screenBuffer[y][x] == ch) {
+		return 1;
+	}
+}
+
+
 
 // Chapter1_Stage1 맵 그리기
 void Drawing_Playground_Chapter1_Stage1() {
@@ -32,6 +55,9 @@ void Drawing_Playground_Chapter1_Stage1() {
 		for (int j = 2; j < 97; j++) { // 가로
 			SettingCursor(j, i);
 			printf("■");
+			if (j < MAX_WIDTH && i < MAX_HEIGHT) {
+				screenBuffer[i][j] = '■';  // 버퍼에 문자 저장
+			}
 		}
 	}
 	// 2. 플레이어 생성하기.
@@ -47,6 +73,9 @@ void Drawing_Playground_Chapter1_Stage1() {
 		for (int j = 47; j < 56; j++) { // ■ : 2칸을 차지함.
 			SettingCursor(j, i);
 			printf(" ");
+			if (j < MAX_WIDTH && i < MAX_HEIGHT) {
+				screenBuffer[i][j] = ' ';  // 버퍼에 문자 저장
+			}
 		}
 	}
 
@@ -58,3 +87,6 @@ void Drawing_Playground_Chapter1_Stage1() {
 	gameManager.posFinishY = 17;
 
 }
+
+
+
