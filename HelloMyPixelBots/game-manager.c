@@ -10,6 +10,7 @@
 
 void Setting_Color();
 void SettingCursor(int x, int y);
+void MovingPixelBot(int x, int y);
 
 void Setting_Color(enum ColorType color) {
 
@@ -18,6 +19,12 @@ void Setting_Color(enum ColorType color) {
 }
 
 void SettingCursor(int x, int y) {
+    COORD coord = { x, y };
+    SetConsoleCursorPosition(GetStdHandle(STD_OUTPUT_HANDLE), coord);
+}
+
+void MovingPixelBot(int x, int y) {
+    SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), 11);
     COORD coord = { x, y };
     SetConsoleCursorPosition(GetStdHandle(STD_OUTPUT_HANDLE), coord);
 }

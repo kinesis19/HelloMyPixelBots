@@ -20,3 +20,4 @@ enum ColorType {
 
 void Setting_Color();
 void SettingCursor(int x, int y);
+void MovingPixelBot(int x, int y);
