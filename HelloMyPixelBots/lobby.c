@@ -200,9 +200,9 @@ static void Initializing_Command_Line() {
 						curCnt++;
 					}
 				}else if (strcmp(curMode, "SelectChapters") == 0) {
-					if (curCnt < 2) {
+					/*if (curCnt < 2) {
 						curCnt++;
-					}
+					}*/
 				}else if (strcmp(curMode, "SelectStages") == 0) {
 					if (curCnt < 6) {
 						curCnt++;
@@ -338,8 +338,8 @@ static void Typing_Command_Line_Dialog(char* type, int curCnt) {
 		SettingCursor(5, 44);
 		printf("[1]Chapter1");
 
-		SettingCursor(5, 46);
-		printf("[2]Chapter2");
+		/*SettingCursor(5, 46);
+		printf("[2]Chapter2(Next Update)");*/
 
 		strcpy(type, "SelectChapters");
 	}else if (strcmp(type, "SelectChapters") == 0) {
