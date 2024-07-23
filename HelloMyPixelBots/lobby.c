@@ -12,6 +12,7 @@
 #include "pixelbot.h"
 #include "stage.h"
 #include "game-manager.h"
+#include "main.h"
 
 // 필요한 상수 선언하기.
 #define UP 72
@@ -138,8 +139,15 @@ static void SettingGUI_Lobby_Layout_Chapter_1() {
 	printf("[Chapter 1]");
 
 	// (스테이지 클리어 현황 / 전체 스테이지)
+	int tempCnt = 0;
+	for (int i = 0; i < 5; i++) {
+		if (pixelBot.sw.clearChapters[0][i] == 1) {
+			tempCnt++;
+		}
+	}
+
 	SettingCursor(22, 6);
-	printf("(0/5)");
+	printf("(%d/5)", tempCnt);
 
 	// 2. 챕터 그래픽 생성하기
 
@@ -170,7 +178,7 @@ static void Initializing_Command_Line() {
 	printf("[1]Enter The Chapter");
 
 	SettingCursor(5, 46);
-	printf("[2]Using the Tools");
+	printf("[2]Go to the Main");
 
 
 	// 키보드 입력 받기.
@@ -215,6 +223,9 @@ static void Initializing_Command_Line() {
 					if (curCnt == 1) {
 						Initializing_Command_Line_Dialog();
 						Typing_Command_Line_Dialog(curMode, curCnt);
+						break;
+					}else if (curCnt == 2) {
+						main();
 						break;
 					}
 				}else if(strcmp(curMode, "SelectChapters") == 0){
