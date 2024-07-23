@@ -21,6 +21,7 @@ void Initializing_GameManager();
 void Setting_Color(enum ColorType color);
 void SettingCursor(int x, int y);
 void MovingPixelBot(int x, int y);
+void Updating_Pixelbot_Info(); // Stage 클리어시 작동되는 함수.
 
 void Initializing_GameManager() {
     gameManager.posFinishX = 0;
@@ -33,9 +34,7 @@ void Initializing_GameManager() {
 }
 
 void Setting_Color(enum ColorType color) {
-
 	SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), color);
-
 }
 
 void SettingCursor(int x, int y) {
@@ -71,4 +70,16 @@ void MovingPixelBot(int x, int y) {
         gameManager.isPassAPI = true;
         return 0;
     }
+}
+
+void Updating_Pixelbot_Info() {
+    // Stage 클리어시 경험치 획득하기.
+    pixelBot.sw.expNow++;
+
+    // PixelBot의 경험치가 최대치 일 때,
+    if (pixelBot.sw.expNow == pixelBot.sw.expMax) {
+        pixelBot.sw.level++;
+        pixelBot.sw.expNow = 0; // 현재 exp는 초기화하기.
+    }
+
 }

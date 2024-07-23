@@ -35,3 +35,4 @@ void Setting_Color(enum ColorType color);
 void SettingCursor(int x, int y);
 void MovingPixelBot(int x, int y);
 void Initializing_GameManager();
+void Updating_Pixelbot_Info();
