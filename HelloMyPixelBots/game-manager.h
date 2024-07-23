@@ -31,7 +31,7 @@ typedef struct _GameManager {
 
 extern GameManager gameManager;
 
-void Setting_Color();
+void Setting_Color(enum ColorType color);
 void SettingCursor(int x, int y);
 void MovingPixelBot(int x, int y);
 void Initializing_GameManager();
