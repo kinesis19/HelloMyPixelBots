@@ -11,7 +11,7 @@ void InitializingPixelBot() {
 
 	for (int i = 0; i < 5; i++) {
 		for (int j = 0; j < 5; j++) {
-			pixelBot.sw.chapters[i][j] = 0;
+			pixelBot.sw.clearChapters[i][j] = 0;
 		}
 	}
 	pixelBot.sw.selectChapter = 0;
