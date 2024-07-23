@@ -132,7 +132,7 @@
     <ClCompile Include="main.c" />
     <ClCompile Include="pixelbot.c" />
     <ClCompile Include="editor-manager.c" />
-    <ClCompile Include="Stage.c" />
+    <ClCompile Include="stage.c" />
     <ClCompile Include="stage-list.c" />
   </ItemGroup>
   <ItemGroup>
@@ -142,7 +142,7 @@
     <ClInclude Include="pixelbot.h" />
     <ClInclude Include="editor-manager.h" />
     <ClInclude Include="stage-list.h" />
-    <ClInclude Include="Stage.h" />
+    <ClInclude Include="stage.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

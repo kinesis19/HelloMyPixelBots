@@ -24,7 +24,7 @@
     <ClCompile Include="pixelbot.c">
       <Filter>소스 파일</Filter>
     </ClCompile>
-    <ClCompile Include="Stage.c">
+    <ClCompile Include="stage.c">
       <Filter>소스 파일</Filter>
     </ClCompile>
     <ClCompile Include="stage-list.c">
@@ -44,7 +44,7 @@
     <ClInclude Include="pixelbot.h">
       <Filter>헤더 파일</Filter>
     </ClInclude>
-    <ClInclude Include="Stage.h">
+    <ClInclude Include="stage.h">
       <Filter>헤더 파일</Filter>
     </ClInclude>
     <ClInclude Include="stage-list.h">
