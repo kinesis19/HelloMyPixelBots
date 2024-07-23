@@ -68,8 +68,10 @@ int main() {
     printf("\t\t\t\t\t\t\t\t\t\t\t[1]New Game\n\n");
     printf("\t\t\t\t\t\t\t\t\t\t\t[2]Load Game(Impossible)\n\n");
     printf("\t\t\t\t\t\t\t\t\t\t\t[3]Settings\n\n");
-    printf("\t\t\t\t\t\t\t\t\t\t\t[4]Exit\n\n");
-    
+    printf("\t\t\t\t\t\t\t\t\t\t\t[4]Exit\n\n\n\n\n\n");
+
+    printf("\t\t\t\t\t\t\t\t↑ : Choose Top | ↓ : Choose Down | Enter : Select |");
+
     // 변수 선언하기.
     int curCnt = 1;
 
@@ -94,6 +96,11 @@ int main() {
             case ENTER:
                 if (curCnt == 1) {
                     Lobby();
+                    return 0;
+                    break;
+                }else if(curCnt == 4){
+                    system("cls");
+                    printf("\n\n게임을 종료하였습니다.\n\n");
                     return 0;
                     break;
                 }
