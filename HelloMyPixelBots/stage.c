@@ -121,6 +121,15 @@ static void SettingGUI_Stage_Layout_Dialog() {
 	SettingCursor(2, 39);
 	printf("Command");
 
+	SettingCursor(10, 39);
+	printf("↑ : Choose Top | ↓ : Choose Down | Enter : Select |");
+
+	//SettingCursor(60, 39);
+	//printf("▣ : PixelBot");
+
+	//SettingCursor(80, 39);
+	//printf("★ : Finish Point");
+
 	// 2-4. 세부 텍스트 테두리 세팅하기.
 	SettingCursor(0, 38);
 	printf("├");
@@ -136,6 +145,7 @@ static void SettingGUI_Stage_Layout_Dialog() {
 
 	SettingCursor(10, 40);
 	printf("┴");
+
 
 }
 
