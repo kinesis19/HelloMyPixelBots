@@ -16,5 +16,6 @@ void InitializingPlayer() {
 	}
 	player.selectChapter = 0;
 	player.selectStage = 0;
-
+	player.posX = 0;
+	player.posY = 0;
 }
