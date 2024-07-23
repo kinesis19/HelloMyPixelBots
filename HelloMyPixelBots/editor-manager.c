@@ -92,6 +92,18 @@ static void Running_API(CommandList* commands, int cntCmd) {
 			for (int j = 0; j < commands[i].step; j++) {
 				MovingPixelBot(player.posX, player.posY - 1);
 			}
+		}else if (sscanf(commands[i].command, "bot.MoveDown(%d)\n", &temp) == 1) {
+			for (int j = 0; j < commands[i].step; j++) {
+				MovingPixelBot(player.posX, player.posY + 1);
+			}
+		}else if (sscanf(commands[i].command, "bot.MoveLeft(%d)\n", &temp) == 1) {
+			for (int j = 0; j < commands[i].step; j++) {
+				MovingPixelBot(player.posX - 2, player.posY); // ▣ : 2칸 이므로 2칸씨 이동함. (가로 한정)
+			}
+		}else if (sscanf(commands[i].command, "bot.MoveRight(%d)\n", &temp) == 1) {
+			for (int j = 0; j < commands[i].step; j++) {
+				MovingPixelBot(player.posX + 2, player.posY); // ▣ : 2칸 이므로 2칸씨 이동함. (가로 한정)
+			}
 		}
 	}
 	// 커맨드 라인에 있는 모든 텍스트 초기화 하기
