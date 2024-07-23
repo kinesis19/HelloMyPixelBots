@@ -209,8 +209,8 @@ static void SettingGUI_Stage_Layout_APIList() {
 		cntLine++;
 	}
 
-	if (player.selectChapter == 1) {
-		if (player.selectStage == 1) {
+	if (player.sw.selectChapter == 1) {
+		if (player.sw.selectStage == 1) {
 			SettingCursor(104, 41);
 			printf("Start() : Start to pixelBot");
 			SettingCursor(104, 42);
@@ -230,9 +230,9 @@ static void SettingGUI_Stage_Layout_APIList() {
 
 static void DrawingGUI_Playground() {
 	// Chapter1일 때,
-	if (player.selectChapter == 1) {
+	if (player.sw.selectChapter == 1) {
 		// Stage1일 때,
-		if (player.selectStage == 1) {
+		if (player.sw.selectStage == 1) {
 			Drawing_Playground_Chapter1_Stage1();
 		}
 	}

@@ -58,15 +58,15 @@ void MovingPixelBot(int x, int y) {
     Setting_Color(WHITE);
     SettingCursor(3, 41);
     printf("Pixelbot is Moving %s", gameManager.condition);
-    SettingCursor(player.posX, player.posY);
+    SettingCursor(player.sw.posX, player.sw.posY);
     printf("  ");
     SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), 11);
     COORD coord = { x, y };
-    player.posX = x, player.posY = y;
+    player.sw.posX = x, player.sw.posY = y;
     SetConsoleCursorPosition(GetStdHandle(STD_OUTPUT_HANDLE), coord);
     printf("¢Ã");
     Sleep(500);
-    if (player.posX == gameManager.posFinishX && player.posY == gameManager.posFinishY) {
+    if (player.sw.posX == gameManager.posFinishX && player.sw.posY == gameManager.posFinishY) {
         gameManager.isStageClear = true;
         gameManager.isPassAPI = true;
         return 0;

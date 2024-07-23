@@ -64,8 +64,8 @@ void Drawing_Playground_Chapter1_Stage1() {
 	SettingCursor(46, 17);
 	Setting_Color(SKYBLUE);
 	printf("▣");
-	player.posX = 46;
-	player.posY = 17;
+	player.sw.posX = 46;
+	player.sw.posY = 17;
 
 	// 3. 길 생성하기.
 	Setting_Color(DARK_GRAY);

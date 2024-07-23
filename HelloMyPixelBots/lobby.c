@@ -229,8 +229,8 @@ static void Initializing_Command_Line() {
 					// Stage1 선택일 때,
 					if (curCnt == 1) {
 						// Stage1로 이동하기.
-						player.selectChapter = 1;
-						player.selectStage = 1;
+						player.sw.selectChapter = 1;
+						player.sw.selectStage = 1;
 						gameManager.selectStageName = 1;
 						free(curMode);
 						EnterToStage();
@@ -238,8 +238,8 @@ static void Initializing_Command_Line() {
 						break;
 					}else if(curCnt == 2){
 						//Stage2로 이동하기.
-						player.selectChapter = 1;
-						player.selectStage = 2;
+						player.sw.selectChapter = 1;
+						player.sw.selectStage = 2;
 						gameManager.selectStageName = 2;
 						free(curMode);
 						EnterToStage();
@@ -247,8 +247,8 @@ static void Initializing_Command_Line() {
 						break;
 					}else if(curCnt == 3){
 						//Stage3로 이동하기.
-						player.selectChapter = 1;
-						player.selectStage = 3;
+						player.sw.selectChapter = 1;
+						player.sw.selectStage = 3;
 						gameManager.selectStageName = 3;
 						free(curMode);
 						EnterToStage();
@@ -256,8 +256,8 @@ static void Initializing_Command_Line() {
 						break;
 					}else if(curCnt == 4){
 						//Stage4로 이동하기.
-						player.selectChapter = 1;
-						player.selectStage = 4;
+						player.sw.selectChapter = 1;
+						player.sw.selectStage = 4;
 						gameManager.selectStageName = 4;
 						free(curMode);
 						EnterToStage();
@@ -265,8 +265,8 @@ static void Initializing_Command_Line() {
 						break;
 					}else if(curCnt == 5){
 						//Stage5로 이동하기.
-						player.selectChapter = 1;
-						player.selectStage = 5;
+						player.sw.selectChapter = 1;
+						player.sw.selectStage = 5;
 						gameManager.selectStageName = 5;
 						free(curMode);
 						EnterToStage();
@@ -274,8 +274,8 @@ static void Initializing_Command_Line() {
 						break;
 					}else if(curCnt == 6){
 						//Lobby로 이동하기.
-						player.selectChapter = 0;
-						player.selectStage = 0;
+						player.sw.selectChapter = 0;
+						player.sw.selectStage = 0;
 						gameManager.selectChapterName = 0;
 						gameManager.selectStageName = 0;
 						Lobby();
