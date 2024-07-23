@@ -12,6 +12,7 @@
 // 헤더파일 참조하기
 #include "game-manager.h"
 #include "Player.h"
+#include "stage-list.h"
 
 // GameManager 구조체 전역 변수로 선언하기.
 GameManager gameManager;
@@ -25,6 +26,10 @@ void Initializing_GameManager() {
     gameManager.posFinishX = 0;
     gameManager.posFinishY = 0;
     gameManager.isStageClear = false;
+    gameManager.selectChapterName = 0;
+    gameManager.selectStageName = 0;
+    gameManager.condition = NULL;
+    gameManager.isPassAPI = false;
 }
 
 void Setting_Color(enum ColorType color) {
@@ -39,6 +44,20 @@ void SettingCursor(int x, int y) {
 }
 
 void MovingPixelBot(int x, int y) {
+    Clearning_Dialog();
+    if(Detecting_Objects(x, y, '■') == 1){ // 장애물이 있을 경우 이동을 종료함.
+        Setting_Color(RED);
+        SettingCursor(3, 41);
+        printf("Pixelbot can't Moving %s", gameManager.condition);
+        SettingCursor(3, 42);
+        printf("Because there is an object in the direction it is trying to move!");
+        Sleep(1000);
+        gameManager.isPassAPI = true;
+        return 0;
+    }
+    Setting_Color(WHITE);
+    SettingCursor(3, 41);
+    printf("Pixelbot is Moving %s", gameManager.condition);
     SettingCursor(player.posX, player.posY);
     printf("  ");
     SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), 11);
