@@ -37,11 +37,21 @@ void Typing_API_To_Editor() {
 
 		Clearning_Dialog();
 
-		Setting_Color(WHITE);
-		SettingCursor(3, 41);
-		printf("Enter the API and move pixelBot to the 'Finish point'!");
 
-		SettingCursor(3, 44);
+		Setting_Color(RED);
+		SettingCursor(3, 41);
+		printf("Please refer to the [API List] and enter the API and move the Pixelbot to the 'Finish Point'!");
+
+		Setting_Color(GREEN);
+		SettingCursor(3, 42);
+		printf("API should start with 'Start()' and end with 'Stop()'!");
+
+		Setting_Color(YELLOW);
+		SettingCursor(3, 43);
+		printf("Enter the number you want in the 'step' value!");
+
+		Setting_Color(WHITE);
+		SettingCursor(3, 45);
 		printf("> ");
 
 		fgets(inputAPI, sizeof(inputAPI), stdin);
@@ -143,13 +153,13 @@ static void Running_API(CommandList* commands, int cntCmd) {
 void Clearning_Dialog() {
 
 	// 커맨드 라인에 있는 모든 텍스트 초기화 하기
-	for (int i = 41; i < 44; i++) {
+	for (int i = 41; i < 45; i++) {
 		for (int j = 3; j < 100; j++) {
 			// Dialog-Top Resetting
 			SettingCursor(j, i);
 			printf(" ");
 			// Dialog-Command Resetting
-			SettingCursor(j, 44);
+			SettingCursor(j, 45);
 			printf(" ");
 		}
 	}
